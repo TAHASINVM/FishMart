@@ -12,8 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
     <title>@yield('title')</title>
     <meta name="description" content="" />
-    <link rel="icon" type="image/x-icon" href="{{ asset('admin/assets/img/favicon/favicon.ico') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="icon" type="image/x-icon" href="{{ asset('admin/assets/img/favicon/favicon.ico') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script src="https://kit.fontawesome.com/efc6f481eb.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
@@ -37,14 +38,20 @@
             <ul class="menu-inner py-1">
                 <li class="menu-item @yield('dashboard_select')">
                     <a href="{{ url('admin/dashboard') }}" class="menu-link">
-                        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                        <i class="menu-icon tf-icons fa fa-tachometer" aria-hidden="true"></i>
                         <div data-i18n="Analytics">Dashboard</div>
                     </a>
                 </li>
                 <li class="menu-item @yield('fish_select')">
                     <a href="{{ url('admin/fish') }}" class="menu-link">
-                        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                        <div data-i18n="Analytics">Fish</div>
+                        <i class="menu-icon tf-icons fa fa-solid fa-fish"></i>
+                        <div data-i18n="Analytics">All Fish</div>
+                    </a>
+                </li>
+                <li class="menu-item @yield('today_fish_select')">
+                    <a href="{{ url('admin/today_fish') }}" class="menu-link">
+                        <i class="menu-icon tf-icons fa fa-solid fa-fish"></i>
+                        <div data-i18n="Analytics">Today Fish</div>
                     </a>
                 </li>
             </ul>

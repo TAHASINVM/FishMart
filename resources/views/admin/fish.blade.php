@@ -6,7 +6,7 @@
 
     <h2>Fish</h2>
     <div>
-        <a href="{{ url('admin/fish/manage_fish') }}"><button class="btn btn-success">ADD NEW FISH</button></a>
+        <a href="{{ url('admin/fish/add_fish') }}"><button class="btn btn-success">ADD NEW FISH</button></a>
     </div>
     @if (session()->has('msg'))
         <div class="alert alert-success text-center my-2" role="alert">
@@ -20,7 +20,7 @@
                 <th>Eng - Name</th>
                 <th>Mal - Name</th>
                 <th>Image</th>
-                <th>Actions</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -36,8 +36,8 @@
                         <img width="200px" src="{{ asset('media/fish/'.$fish->image) }}" alt="">
                     </th>
                     <th>
-                        <a href="" class="btn btn-success">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="{{ url('admin/fish/edit_fish/'.$fish->id) }}" class="btn btn-success">Edit</a>
+                        <a href="{{ url('admin/fish/delete/'.$fish->id) }}" class="btn btn-danger">Delete</a>
                     </th>
                 </tr>
             @endforeach

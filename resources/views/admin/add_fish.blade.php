@@ -8,7 +8,7 @@
     <div>
         <a href="{{ url('admin/fish') }}"><button class="btn btn-success">BACK</button></a>
     </div>
-    <form action="{{ url('admin/fish/manage_fish_process') }}" enctype="multipart/form-data" class="p-3 bg-white my-4 rounded" method="post">
+    <form action="{{ url('admin/fish/add_fish_process') }}" enctype="multipart/form-data" class="p-3 bg-white my-4 rounded" method="post">
         @csrf
         <h3 class="text-center">ADD NEW FISH</h3>
         <div class="form-group p-3">

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FishController;
+use App\Http\Controllers\FishHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,14 @@ Route::group(['middleware'=>'admin_auth'],function(){
     Route::get('/admin/dashboard',[AdminController::class,'dashboard']);
 
     Route::get('/admin/fish',[FishController::class,'index']);
-    Route::get('/admin/fish/manage_fish',[FishController::class,'manage_fish']);
-    Route::post('/admin/fish/manage_fish_process',[FishController::class,'manage_fish_process']);
+    Route::get('/admin/fish/add_fish',[FishController::class,'add_fish']);
+    Route::post('/admin/fish/add_fish_process',[FishController::class,'add_fish_process']);
+    Route::get('/admin/fish/edit_fish/{id}',[FishController::class,'edit_fish']);
+    Route::post('/admin/fish/edit_fish_process/{id}',[FishController::class,'edit_fish_process']);
+    Route::get('/admin/fish/delete/{id}',[FishController::class,'delete']);
+
+    Route::get('/admin/today_fish',[FishHistoryController::class,'index']);
+    Route::post('/admin/today_fish/add',[FishHistoryController::class,'add']);
 
 
     Route::get('/admin/logout',function(){
