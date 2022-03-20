@@ -20,7 +20,7 @@
                 <th>Eng - Name</th>
                 <th>Mal - Name</th>
                 <th>Image</th>
-                <th>Action</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
