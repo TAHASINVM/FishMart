@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
+
     <div id="admin_login_page" class="container-fluid w-100 vh-100">
         <div class="row h-100">
             <div class="col h-100 d-flex justify-content-center align-items-center">
-                <form action="" class="col-5 bg-white rounded">
+                <form action="{{ url('admin/login_process') }}" class="col-5 bg-white rounded" method="post">
+                    @csrf
                     <h2 class="text-center py-4 logo"><span class="text-success logo">FISH</span>MART</h2>
                     <hr class="horizontal_line mt-0">
                     <div class="form-group">
@@ -30,6 +32,14 @@
                     <div class="form-group text-center">
                         <input type="submit" name="login" id="" value="Login" class='btn btn-success bold' >
                     </div>
+                    @if (session()->has('error'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('error') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>      
+                    @endif
                 </form>
             </div>
         </div>
