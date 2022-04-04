@@ -50,8 +50,20 @@
                 </li>
                 <li class="menu-item @yield('today_fish_select')">
                     <a href="{{ url('admin/today_fish') }}" class="menu-link">
-                        <i class="menu-icon tf-icons fa fa-solid fa-fish"></i>
+                        <i class="menu-icon tf-icons fa fa-solid fa-eye"></i>
                         <div data-i18n="Analytics">Today Fish</div>
+                    </a>
+                </li>
+                <li class="menu-item @yield('category_select')">
+                    <a href="{{ url('admin/category') }}" class="menu-link">
+                        <i class="menu-icon tf-icons fa fa-solid fa-closed-captioning"></i>
+                        <div data-i18n="Analytics">Category</div>
+                    </a>
+                </li>
+                <li class="menu-item @yield('history_select')">
+                    <a href="{{ url('admin/history') }}" class="menu-link">
+                        <i class="menu-icon tf-icons fa fa-solid fa-campground"></i>
+                        <div data-i18n="Analytics">History</div>
                     </a>
                 </li>
             </ul>
@@ -66,18 +78,13 @@
                 </div>
 
                 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                    <div class="navbar-nav align-items-center">
-                        <div class="nav-item d-flex align-items-center">
-                            <i class="bx bx-search fs-4 lh-0"></i>
-                            <input type="text" class="form-control border-0 shadow-none" placeholder="Search..." aria-label="Search..."/>
-                        </div>
-                    </div>
+                    @yield('heading')
 
                     <ul class="navbar-nav flex-row align-items-center ms-auto">
                         <li class="nav-item navbar-dropdown dropdown-user dropdown">
                             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                 <div class="avatar avatar-online">
-                                <img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
+                                <img src="{{ asset('admin/images/'.session('ADMIN_IMAGE')) }}" alt class="w-px-40 h-auto rounded-circle" />
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
@@ -86,11 +93,11 @@
                                     <div class="d-flex">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar avatar-online">
-                                        <img src="{{ asset('admin/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
+                                        <img src="{{ asset('admin/images/'.session('ADMIN_IMAGE')) }}" alt class="w-px-40 h-auto rounded-circle" />
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <span class="fw-semibold d-block">@yield('admin_name')</span>
+                                        <span class="fw-semibold d-block">{{ session('ADMIN_NAME') }}</span>
                                         <small class="text-muted">Admin</small>
                                     </div>
                                     </div>
@@ -100,7 +107,7 @@
                                 <div class="dropdown-divider"></div>
                                 </li>
                                 <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ url('admin/profile') }}">
                                     <i class="bx bx-user me-2"></i>
                                     <span class="align-middle">My Profile</span>
                                 </a>

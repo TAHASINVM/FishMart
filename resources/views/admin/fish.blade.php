@@ -1,10 +1,11 @@
 @extends('admin.layout')
 @section('title','Fish')
-@section('admin_name', session('ADMIN_NAME') )
 @section('fish_select','active')
+@section('heading')
+    <strong>FISH</strong>
+@endsection
 @section('container')
 
-    <h2>Fish</h2>
     <div>
         <a href="{{ url('admin/fish/add_fish') }}"><button class="btn btn-success">ADD NEW FISH</button></a>
     </div>

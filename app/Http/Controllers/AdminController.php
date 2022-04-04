@@ -32,6 +32,7 @@ class AdminController extends Controller
             $request->session()->put('ADMIN_LOGIN',true);
             $request->session()->put('ADMIN_ID',$data[0]->id);
             $request->session()->put('ADMIN_NAME',$data[0]->name);
+            $request->session()->put('ADMIN_IMAGE',$data[0]->image);
             return redirect('admin/dashboard');
         }else{
             $request->session()->flash('error','Please Enter Valid Login Details');
@@ -46,6 +47,10 @@ class AdminController extends Controller
     
     public function dashboard(){
         return view('admin.dashboard');
+    }
+    public function profile(){
+        $data=Admin::find(session('ADMIN_ID'));
+        return view('admin.profile',compact('data'));
     }
 
 }
